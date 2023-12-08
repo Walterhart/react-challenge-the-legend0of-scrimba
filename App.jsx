@@ -34,14 +34,26 @@ export default function App() {
 		   in your character's name and click "Continue"!
 */
 
+	
+	function handleOnChange(e){
+		setPlayerName(e.target.value)
+	}
+
 	return (
 		<form className="form" onSubmit={handleSubmit}>
             <TopSection submitted={submitted} />
             
 			{/*-----Your input below!----------*/}
-			
-			
-			
+			<input
+			 type="text"
+			 className="name-input"
+			 value={playerName}
+			 onChange={handleOnChange} 
+			 maxLength={16}
+			 placeholder="Enter Your Character's Name"
+			 required
+			 disabled={submitted}
+			/>
 			{/*-----Your input above!----------*/}
             
             <BottomSection submitted={submitted} playerName={playerName} />
